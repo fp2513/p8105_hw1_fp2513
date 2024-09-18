@@ -63,5 +63,7 @@ df <- data.frame(
 
 as.logical(df%>% pull(value) >0 
 )
+
+as.character(format(df%>% pull(value), digits = 10))
 ```
 
