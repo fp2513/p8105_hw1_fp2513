@@ -1,16 +1,15 @@
 ---
 title: "p8105_hw1_fp2513"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include = FALSE}
 library(tidyverse)
 ```
 
-# Section 1
+# Loading penguins dataset
 
 Here's a **code chunk** to load the _penguins_ data set:
-`data("penguins", package = "palmerpenguins")`
 
 ```{r}
 data("penguins", package = "palmerpenguins")
@@ -45,4 +44,5 @@ ggplot(data = penguins) +
   geom_point(mapping = aes(x = bill_length_mm, y = flipper_length_mm, 
                            color = species)) +
 ggtitle("Bill and Flipper length of Penguin species")
+ggsave("20240916 Penguins scatter plot.pdf")
 ```
