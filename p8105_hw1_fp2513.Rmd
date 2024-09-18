@@ -5,9 +5,10 @@ output: github_document
 
 ```{r setup, include = FALSE}
 library(tidyverse)
+library(dbplyr)
 ```
 
-# Loading penguins dataset
+## Loading penguins dataset
 
 Here's a **code chunk** to load the _penguins_ data set:
 
@@ -16,22 +17,20 @@ data("penguins", package = "palmerpenguins")
 
 ```
 
-# Section 2
+## Describing the Penguins dataset
 
-The next section writes a short description of the penguins data set:
-The variable data set has `colnames(penguins, do.NULL = TRUE, prefix = "col")`
-as column names, `nrow(penguins)` rows, `ncol(penguins)` columns, and the mean
-flipper length is `mean(penguins$flipper_length_mm, na.rm=TRUE)`
+The next section writes a short description of the penguins data set. This includes respectively, the column names, the number of rows, the number of columns, and the mean flipper length in mm (and the code to retrieve those results)
 
 ```{r}
 penguins_df = 
-  colnames(penguins, do.NULL = TRUE, prefix = "col")
+    colnames(penguins, do.NULL = TRUE, prefix = "col")
   colnames(penguins)
-
+  
   nrow(penguins) 
   ncol(penguins) 
   
-  mean(penguins$flipper_length_mm, na.rm=TRUE)
+mean(penguins %>% pull(flipper_length_mm), na.rm = TRUE)
+
 ```
 
 # Section 3
