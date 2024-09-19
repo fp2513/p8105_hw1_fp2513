@@ -33,6 +33,9 @@ penguins_df =
          pull(flipper_length_mm), na.rm = TRUE)
 ```
 
+The columns in the penguins data set include: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. There are 344 rows and 8 columns. The mean flipper length of these penguins in mm is 200.9152
+
+
 # Section 3
 
 Making a scatter plot of the flipper length (mm) (y-axis) against bill length 
@@ -43,8 +46,12 @@ ggplot(data = penguins) +
   geom_point(mapping = aes(x = bill_length_mm, y = flipper_length_mm, 
                            color = species), na.rm = TRUE) +
 ggtitle("Bill and Flipper length of Penguin species")
+```
+
+```{r, eval = FALSE}
 ggsave("20240916 Penguins scatter plot.pdf")
 ```
+
 
 ## HW1 Problem 2
 
@@ -72,4 +79,33 @@ df <- data.frame(
 print(df)
 ```
 
+Take the mean of each variable in your dataframe.
+(Numeric and Logical work, but Character and Factor do not)
+```{r}
+mean(df %>% pull(Numeric_Column))
+
+mean(df %>% pull(Logical_Column))
+
+mean(df %>% pull(Character_Column))
+
+mean(df %>% pull(Factor_Column))
+```
+
+Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output)
+
+```{r, eval = FALSE}
+as.numeric(df %>% pull(Logical_Column))
+as.numeric(df %>% pull(Character_Column))
+as.numeric(df %>% pull(Factor_Column))
+
+```
+
+What happens, and why? Does this help explain what happens when you try to take the mean?
+
+
+Converting the logical column into a numeric turns the TRUE FALSE into binary 1 and 0 respectively
+
+Converting the character values into numeric, but since characters are not numeric, the output is NA for each character value
+
+Converting the factor values maps each level of the factor into an integer code (here 3 levels so either 1, 2 or 3)
 
