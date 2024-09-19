@@ -49,10 +49,10 @@ ggsave("20240916 Penguins scatter plot.pdf")
 ## HW1 Problem 2
 
 Creating a data frame comprised of:
-1. a random sample of size 10 from a standard Normal distribution
-2. a logical vector indicating whether elements of the sample are greater than 0
-3. a character vector of length 10
-4. a factor vector of length 10, with 3 different factor “levels”
+1. A random sample of size 10 from a standard Normal distribution
+2. A logical vector indicating whether elements of the sample are greater than 0
+3. A character vector of length 10
+4. A factor vector of length 10, with 3 different factor “levels”
 
 ```{r df_create}
 set.seed(1234)
@@ -61,9 +61,10 @@ df <- data.frame(
   value = rnorm(10, sd = 1)
 )
 
-as.logical(df%>% pull(value) >0 
-)
+as.logical(df %>% pull(value) > 0)
 
 as.character(format(df%>% pull(value), digits = 10))
+
+as.factor(sample(c("Level1", "Level2", "Level3"), 10, replace = TRUE))
 ```
 
